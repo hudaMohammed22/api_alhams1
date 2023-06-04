@@ -11,11 +11,11 @@ class ApiResponse<T> {
   ApiResponse.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    if(T is! User){
-      object =  json['object'] != null ? ImageClass.fromJson(json['object']) as T : null;
-    }else {
+    // if(T is User){
       object =  json['object'] != null ? User.fromJson(json['object']) as T : null;
-    }
+    // }else {
+    //   object =  json['object'] != null ? ImageClass.fromJson(json['object']) as T : null;
+    // }
     code =  json['code'];
   }
 

@@ -39,6 +39,7 @@ dependencies:
   google_fonts: any
   get_storage: ^2.1.1
   image_picker: ^0.8.7+5
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

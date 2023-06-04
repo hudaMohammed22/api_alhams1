@@ -1,7 +1,9 @@
 import 'package:api_alhams/model/Post.dart';
 import 'package:api_alhams/api/api_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../get/api_getx_controller.dart';
 import 'my_images.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,8 +12,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState() {
+    Get.put<ApiGextController>(ApiGextController());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if(Get.find<ApiGextController>().list.isEmpty)
+      Get.find<ApiGextController>().getData(context);
     return Scaffold(
       appBar: AppBar(
         actions: [

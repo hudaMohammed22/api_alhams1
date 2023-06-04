@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:api_alhams/model/image_class.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../api/images_controller.dart';
+import '../get/api_getx_controller.dart';
 import '../model/ApiResponse.dart';
 
 class AddImage extends StatefulWidget {
@@ -47,6 +49,8 @@ class _AddImageState extends State<AddImage> {
                 ApiResponse<ImageClass> response = await ImageApiController().uploadImage(path: file!.path,context: context);
                 if(response.status!){
                   Navigator.pop(context);
+                  Get.find<ApiGextController>().addToList(response.object);
+
                 }
               },
               child: Text("uploadImage")),
