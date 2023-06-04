@@ -19,6 +19,7 @@ class ApiResponse<T> {
     code =  json['code'];
   }
 
+
   // Map<String, dynamic> toJson() {
   //   final Map<String, dynamic> data = new Map<String, dynamic>();
   //   data['status'] = this.status;
