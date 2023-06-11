@@ -49,8 +49,8 @@ class _AddImageState extends State<AddImage> {
                 ApiResponse<ImageClass> response = await ImageApiController().uploadImage(path: file!.path,context: context);
                 if(response.status!){
                   Navigator.pop(context);
-                  Get.find<ApiGextController>().addToList(response.object);
-
+                  Get.find<ApiGextController>().list.add(response.object!);
+                  // Get.find<ApiGextController>().addToList(response.object);
                 }
               },
               child: Text("uploadImage")),
